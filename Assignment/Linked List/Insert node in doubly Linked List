@@ -1,0 +1,73 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+
+static class Node{
+    int data;
+    Node next;
+    Node prev;
+  }
+  public static class LinkedList {
+        Node head;
+        Node tail;
+
+  public void insert(int data){
+        Node newnode = new Node();
+        newnode.data = data;
+        newnode.next = null;
+           if(head == null){
+                head = newnode;
+                tail = newnode;
+                return;
+            }
+          else
+          {
+            tail.next=newnode;
+            newnode.prev=tail;
+
+            tail=newnode;
+          }
+        }
+    public void insertfirst(int data){
+      Node newnode=new Node();
+      newnode.data=data;
+
+      if(head==null)
+      {
+        head=newnode;
+      }
+      else
+      {
+          head.prev=newnode;
+          newnode.next=head;
+
+          head=newnode;
+      }
+    }
+    public void print(){
+      Node newnode=head;
+      while(newnode!=null){
+        System.out.print(newnode.data+" ");
+        newnode=newnode.next;
+      }
+    }
+  }
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        //your code here
+      Scanner sc=new Scanner (System.in);
+      LinkedList list=new LinkedList();
+      int n =sc.nextInt();
+      int y=sc.nextInt();
+      for(int i=0;i<n;i++){
+        int x=sc.nextInt();
+        list.insert(x);
+      }
+
+      list.insertfirst(y);
+      list.print();
+      }
+}
