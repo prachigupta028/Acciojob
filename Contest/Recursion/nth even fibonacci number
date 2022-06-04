@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{public static int fib(int n){
+    if(n<1){
+      return n;
+    }
+   else if(n==1){
+      return 2;
+    }
+    else
+      return (4*(fib(n-1))+fib(n-2));
+      
+  }
+  
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	Scanner sc=new Scanner (System.in);
+      int n=sc.nextInt();
+      System.out.println(fib(n));
+	
+	}
+}
