@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+  public static void disk(int n,char A,char B,char C){
+     if(n==1){
+      System.out.println(A+"->"+C+" ");
+      return;
+    }
+    disk(n-1,A,C,B);
+    System.out.println(A+"->"+C+" ");
+disk(n-1,B,A,C);
+      
+    
+  }
+    public static void main(String args[]) {
+        // your code here
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      disk(n,'A','B','C');
+      }
+}
