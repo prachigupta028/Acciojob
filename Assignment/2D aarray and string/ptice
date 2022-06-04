@@ -1,0 +1,21 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+  public static int natural(int n){
+   // return 1 <<(n-1);
+    if(n==1){
+      return 1;
+    }
+    return n-2;
+  }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      System.out.print(natural(n));
+	}
+}
