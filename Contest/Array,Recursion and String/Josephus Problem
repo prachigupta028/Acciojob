@@ -1,0 +1,24 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+
+  public static int remove(int n,int k){
+    if(n==1){
+      return 0;
+    }
+  return   (remove(n-1,k)+k)%n;
+    
+  }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int k=sc.nextInt();
+      //remove(n,k);
+      int m=remove(n,k);
+      System.out.print(m+1);
+	}
+}
