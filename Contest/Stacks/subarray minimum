@@ -1,0 +1,54 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+  static class pair{
+    int first,second;
+    public pair(int first,int second){
+      this.first=first;
+      this.second=second;
+    }
+  }
+    static int sum(int a[],int n){
+      int []left=new int[n];
+      int right[]=new int[n];
+
+      Stack<pair> s1=new Stack<pair>();
+      Stack<pair> s2=new Stack<pair>();
+
+      for(int i=0;i<n;i++){
+        int c=1;
+        while(!s1.isEmpty() && (s1.peek().first)> a[i]){
+          c+=s1.peek().second;
+          s1.pop();
+        }
+        s1.push(new pair(a[i],c));
+        left[i]=c;
+      }
+      for(int i=n-1;i>=0;i--){
+        int c=1;
+        while(!s2.isEmpty() && (s2.peek().first)>=a[i]){
+          c+=s2.peek().second;
+          s2.pop();
+        }
+        s2.push(new pair(a[i],c));
+        right[i]=c;
+      }
+      int result=0;
+      for(int i=0;i<n;i++)
+        result=(result+a[i]*left[i] *right[i]);
+        return result;
+      
+    }
+  
+    public static void main(String args[]) {
+        //your code here
+      Scanner sc=new Scanner (System.in);
+      int n=sc.nextInt();
+      int a[]=new int[n];
+      for(int i=0;i<n;i++){
+        a[i]=sc.nextInt();
+      }
+       System.out.print(sum(a,n)); 
+    }
+}
