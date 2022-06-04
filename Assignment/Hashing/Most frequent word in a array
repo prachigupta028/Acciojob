@@ -1,0 +1,43 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+  public static String words(String s[]){
+    int n=s.length;
+    HashMap<String,Integer> map=new HashMap<String,Integer>();
+    int max=0;
+    int freq=0;
+    String result="";
+    for(int i=0;i<n;i++){
+      String word=s[i];
+      if(map.containsKey(word)){
+       freq= map.get(word);
+      }
+      else{
+       freq= 0;
+      }
+      freq=freq+1;
+      map.put(word,freq);
+      if(freq>=max){
+        max=freq;
+        result=word;
+      }
+    }
+    return result;
+  }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//your code here
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+     // String input[]=new String[n];
+
+      sc.nextLine();
+      String input[]=new String[n];
+    input=sc.nextLine().split(" ");
+      String output=words(input);
+      System.out.println(output);
+	}
+}
