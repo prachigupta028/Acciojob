@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	String s=sc.next();
+	int l=s.length();
+	
+	char name[]=new char[l];
+	int hour=((s.charAt(0)-'0')*10+(s.charAt(1)-'0'));
+	
+	for(int i=0;i<8;i++){
+	    name[i]=s.charAt(i);
+	}
+	
+	if((s.charAt(l-2))=='A'){
+	if(hour==12){
+	    name[0]='0';
+	    name[1]='0';
+	}
+	 else{
+	     if(hour!=12){
+	         hour+=12;
+	         name[0]=(char)(hour/10+'0');
+	         name[1]=(char)(hour%10+'0');
+	     }
+	 }  
+	}
+	for(int i=0;i<8;i++){
+	    System.out.print(name[i]);
+	}
+	}
+}
