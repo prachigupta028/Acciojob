@@ -1,0 +1,55 @@
+import java.util.*;
+public class Main
+{
+    static boolean match(char a, char b){
+        if(a=='(' & b ==')'){
+            return true;
+        }
+        if(a=='{' & b =='}'){
+            return true;
+        }
+        if(a=='[' & b ==']'){
+            return true;
+        }
+        return false;
+    }
+
+      static void isValid(String s) {
+        Stack<Character> st = new Stack<Character>();
+        if(s.length() % 2 != 0){
+          System.out.print(0);
+            return;
+        }
+        for( int i=0; i<s.length(); i++){
+            if(s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '['){
+                st.push(s.charAt(i));
+            }else{
+                if (st.empty()){
+                  System.out.print(0);
+                    return ;
+                }else{
+                    if(match(st.peek(), s.charAt(i))){
+                        st.pop();
+                    }else{
+                      System.out.print(0);
+                        return;
+                    }
+                }
+            }
+        }
+        if(st.empty()){
+          System.out.print(1);
+            return;
+        }else{
+          System.out.print(0);
+            return;
+        }
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      String s = sc.next(); 
+
+      isValid(s);
+
+    }
+}
